@@ -6,17 +6,19 @@ import { selectCity } from "../actions/index";
 
 class City extends Component {
   handleClick = () => {
-    this.props.selectCity(this.props.city);
+    const { selectCity, city } = this.props;
+    selectCity(city);
   };
 
   render() {
+    const { selectedCity, city } = this.props;
     let classes = "list-group-item";
-    if (this.props.city === this.props.selectedCity) {
+    if (city === selectedCity) {
       classes += " active";
     }
     return (
       <div className={classes} onClick={this.handleClick} role="link" tabIndex={1}>
-        <p>{this.props.city.name}</p>
+        <p>{city.name}</p>
       </div>
     );
   }

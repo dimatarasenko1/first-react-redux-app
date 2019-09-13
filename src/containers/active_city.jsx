@@ -6,16 +6,18 @@ import { selectCity } from "../actions/index";
 
 class ActiveCity extends Component {
   handleClick = () => {
-    this.props.selectCity(null);
+    const { selectCity } = this.props;
+    selectCity(null);
   }
 
   render() {
-    if (this.props.city) {
-      const link = `https://kitt.lewagon.com/placeholder/cities/${this.props.city.slug}`;
+    const { city } = this.props;
+    if (city) {
+      const link = `https://kitt.lewagon.com/placeholder/cities/${city.slug}`;
       return (
         <div className="active-city">
-          <h3>{this.props.city.name}</h3>
-          <h2>{this.props.city.address}</h2>
+          <h3>{city.name}</h3>
+          <h2>{city.address}</h2>
           <img src={link} alt=""/>
           <div>
             <a href="#" onClick={this.handleClick}>Close</a>

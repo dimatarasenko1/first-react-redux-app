@@ -7,17 +7,16 @@ import { setCities } from '../actions/index';
 import City from './city';
 
 class CityList extends Component {
-  handleClick = () => {
-    console.log("hello")
-  }
-  UNSAFE_componentWillMount() {
-    this.props.setCities();
+  componentWillMount() {
+    const { setCities } = this.props;
+    setCities();
   }
 
   render() {
+    const { cities } = this.props;
     return (
       <div className="cities">
-        {this.props.cities.map(city => <City city={city} key={city.slug} />)}
+        {cities.map(city => <City city={city} key={city.slug} />)}
       </div>
     );
   }
