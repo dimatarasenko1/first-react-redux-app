@@ -7,7 +7,10 @@ import { setCities } from '../actions/index';
 import City from './city';
 
 class CityList extends Component {
-  componentWillMount() {
+  handleClick = () => {
+    console.log("hello")
+  }
+  UNSAFE_componentWillMount() {
     this.props.setCities();
   }
 

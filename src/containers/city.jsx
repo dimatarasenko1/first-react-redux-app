@@ -10,8 +10,12 @@ class City extends Component {
   };
 
   render() {
+    let classes = "list-group-item";
+    if (this.props.city === this.props.selectedCity) {
+      classes += " active";
+    }
     return (
-      <div className="list-group-item" onClick={this.handleCLick}>
+      <div className={classes} onClick={this.handleClick} role="link" tabIndex={1}>
         <p>{this.props.city.name}</p>
       </div>
     );
