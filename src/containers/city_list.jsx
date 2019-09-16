@@ -7,10 +7,15 @@ import { setCities } from '../actions/index';
 import City from './city';
 
 class CityList extends Component {
-  componentWillMount() {
-    const { setCities } = this.props;
+  constructor(props) {
+    super(props);
+    const { setCities } = props;
     setCities();
   }
+  // componentWillMount() {
+  //   const { setCities } = this.props;
+  //   setCities();
+  // }
 
   render() {
     const { cities } = this.props;
